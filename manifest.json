@@ -2,26 +2,34 @@
   "manifest_version": 3,
   "name": "Grafana Alert",
   "version": "1.0",
-  "description": "Extension Chrome pour la détection de changements de couleur sur un dashboard Grafana avec alertes sonores",
+  "description": "Monitor Grafana dashboards and trigger sound alerts based on color changes",
+  "icons": {
+    "16": "icons/icon16.png",
+    "128": "icons/icon128.png"
+  },
   "permissions": [
     "activeTab",
-    "scripting",
-    "storage"
+    "storage",
+    "scripting"
   ],
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["*://*/*"],
+      "matches": ["<all_urls>"],
       "js": ["content.js"]
     }
   ],
   "web_accessible_resources": [{
-    "resources": [
-      "sounds/sound_attention.mp3",
-      "sounds/sound_alert.mp3"
-    ],
-    "matches": ["*://*/*"]
+    "resources": ["sounds/*"],
+    "matches": ["<all_urls>"]
   }]
 } 
