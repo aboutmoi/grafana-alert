@@ -75,4 +75,25 @@ elements.yellowColor.addEventListener('input', updateColorPreviews);
 elements.redColor.addEventListener('input', updateColorPreviews);
 
 // Charger la configuration au démarrage
-document.addEventListener('DOMContentLoaded', loadConfig); 
+document.addEventListener('DOMContentLoaded', loadConfig);
+
+// Créer un élément de zone
+function createAreaItem(area) {
+  const item = document.createElement('div');
+  item.className = 'area-item';
+  
+  const info = document.createElement('div');
+  info.className = 'area-info';
+  info.textContent = `Area ${elements.areasList.children.length + 1}: ${Math.round(area.width)}x${Math.round(area.height)} pixels`;
+  
+  const deleteButton = document.createElement('button');
+  deleteButton.className = 'delete';
+  deleteButton.innerHTML = '&times;';
+  deleteButton.onclick = () => item.remove();
+  
+  item.appendChild(info);
+  item.appendChild(deleteButton);
+  item.dataset.area = JSON.stringify(area);
+  
+  return item;
+} 
