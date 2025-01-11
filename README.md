@@ -2,7 +2,6 @@
 
 A Chrome extension that monitors Grafana dashboards and triggers sound alerts based on color changes in panels.
 
-![Grafana Alert Screenshot](docs/screenshot.png)
 
 ## Features
 
