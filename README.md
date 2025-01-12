@@ -21,9 +21,6 @@ A Chrome extension that monitors Grafana dashboards and triggers sound alerts ba
    - `sound_attention.mp3` for warning state
    - `sound_alert.mp3` for alert state
 3. Open Chrome and go to `chrome://extensions/`
-4. Enable "Developer mode" (top right)
-5. Click "Load unpacked extension"
-6. Select the extension folder
 
 ## Usage
 
@@ -119,7 +116,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 For support:
-1. Check the [Issues](https://github.com/yourusername/grafana-alert/issues) page
+1. Check the [Issues](https://github.com/aboutmoi/grafana-alert/issues) page
 2. Open a new issue if needed
 3. Provide as much detail as possible about your problem
 
