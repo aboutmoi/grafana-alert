@@ -2,7 +2,6 @@
 
 A Chrome extension that monitors Grafana dashboards and triggers sound alerts based on color changes in panels.
 
-
 ## Features
 
 - Real-time monitoring of Grafana dashboard panels
@@ -40,49 +39,49 @@ The extension will now monitor the selected areas and play sounds when:
 
 ## Configuration
 
-Cliquez sur l'icône de l'extension dans Chrome pour configurer :
+Click on the extension icon in Chrome to configure:
 
-- Activer/désactiver l'extension
-- Sélecteur CSS des éléments à surveiller (par défaut : `.panel-container`)
-- Couleurs à détecter :
-  - Jaune (attention) : `rgb(250, 176, 5)`
-  - Rouge (alerte) : `rgb(245, 54, 54)`
-- Délai minimum entre les sons (par défaut : 2000ms)
+- Enable/disable the extension
+- Select areas to monitor on your dashboard
+- Colors to detect:
+  - Yellow (warning): `rgb(250, 176, 5)`
+  - Red (alert): `rgb(245, 54, 54)`
+- Minimum delay between sounds (default: 2000ms)
 
-## Utilisation
+## How it works
 
-1. Installez l'extension
-2. Configurez-la selon vos besoins
-3. Accédez à votre dashboard Grafana
-4. L'extension détectera automatiquement les changements de couleur
-5. Des sons seront joués pour :
-   - Panneau jaune : son d'attention
-   - Panneau rouge : son d'alerte
+1. Install the extension
+2. Configure it according to your needs
+3. Access your Grafana dashboard
+4. The extension will automatically detect color changes
+5. Sounds will be played for:
+   - Yellow panel: warning sound
+   - Red panel: alert sound
 
-## Structure des fichiers
+## File Structure
 
 ```
 grafana-alert/
-├── manifest.json          # Configuration de l'extension
-├── content.js            # Script principal
-├── popup.html            # Interface de configuration
-├── popup.js             # Logique de configuration
-├── sounds/              # Dossier des sons
+├── manifest.json          # Extension configuration
+├── content.js            # Main script
+├── popup.html            # Configuration interface
+├── popup.js             # Configuration logic
+├── sounds/              # Sounds folder
 │   ├── sound_attention.mp3
 │   ├── sound_alert.mp3
 │   └── README.md
-└── README.md            # Ce fichier
+└── README.md            # This file
 ```
 
-## Dépannage
+## Troubleshooting
 
-Si l'extension ne fonctionne pas :
+If the extension is not working:
 
-1. Vérifiez que les fichiers sons sont présents
-2. Assurez-vous que le sélecteur CSS correspond à vos panneaux
-3. Vérifiez les valeurs RGB des couleurs
-4. Consultez la console développeur (F12) pour les erreurs
-5. Essayez de recharger l'extension
+1. Check that sound files are present
+2. Verify your color RGB values
+3. Check the developer console (F12) for errors
+4. Try reloading the extension
+5. Make sure you have selected areas to monitor
 
 ## Support
 
