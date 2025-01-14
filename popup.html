@@ -4,7 +4,7 @@
   <title>Grafana Alert - Configuration</title>
   <style>
     body {
-      width: 300px;
+      width: 400px;
       padding: 15px;
       font-family: Arial, sans-serif;
     }
@@ -36,10 +36,27 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      width: 100%;
     }
     button:hover {
       background-color: #45a049;
+    }
+    button.secondary {
+      background-color: #f8f9fa;
+      color: #333;
+      border: 1px solid #ddd;
+      margin-right: 5px;
+    }
+    button.secondary:hover {
+      background-color: #e9ecef;
+    }
+    button.delete {
+      background-color: #dc3545;
+      color: white;
+      padding: 4px 8px;
+      margin-left: 5px;
+    }
+    button.delete:hover {
+      background-color: #c82333;
     }
     .status {
       margin-top: 10px;
@@ -55,41 +72,94 @@
       background-color: #f2dede;
       color: #a94442;
     }
+    .areas-list {
+      margin-bottom: 15px;
+    }
+    .area-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+      padding: 8px;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+    }
+    .area-info {
+      flex-grow: 1;
+      margin-right: 10px;
+    }
+    .area-actions {
+      margin-bottom: 15px;
+    }
+    .save-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .save-container button {
+      width: 100%;
+    }
+    .help-text {
+      font-size: 12px;
+      color: #666;
+      margin-top: 5px;
+    }
+    .color-input-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    input[type="text"] {
+      flex: 1;
+    }
   </style>
 </head>
 <body>
-  <h2>Configuration Grafana Alert</h2>
+  <h2>Grafana Alert Configuration</h2>
   
   <div class="form-group">
     <label>
       <input type="checkbox" id="enabled" checked>
-      Activer l'extension
+      Enable extension
     </label>
   </div>
 
   <div class="form-group">
-    <label for="selector">Sélecteur CSS à surveiller</label>
-    <input type="text" id="selector" placeholder=".panel-container">
+    <label>Monitored areas</label>
+    <div id="areas-list" class="areas-list">
+      <!-- Areas will be added here dynamically -->
+    </div>
+    <div class="area-actions">
+      <button type="button" id="add-area" class="secondary">+ Add area</button>
+    </div>
+    <div class="help-text">
+      Click on "Add area" then draw a rectangle on the area to monitor.
+      Press Enter to validate or Escape to cancel.
+    </div>
   </div>
 
   <div class="form-group">
-    <label for="yellowColor">Couleur d'attention (jaune)</label>
-    <input type="text" id="yellowColor" placeholder="rgb(250, 176, 5)">
-    <span class="color-preview" id="yellowPreview"></span>
+    <label for="yellowColor">Warning color (yellow)</label>
+    <div class="color-input-group">
+      <input type="text" id="yellowColor" placeholder="rgb(250, 176, 5)">
+      <span class="color-preview" id="yellowPreview"></span>
+    </div>
   </div>
 
   <div class="form-group">
-    <label for="redColor">Couleur d'alerte (rouge)</label>
-    <input type="text" id="redColor" placeholder="rgb(245, 54, 54)">
-    <span class="color-preview" id="redPreview"></span>
+    <label for="redColor">Alert color (red)</label>
+    <div class="color-input-group">
+      <input type="text" id="redColor" placeholder="rgb(245, 54, 54)">
+      <span class="color-preview" id="redPreview"></span>
+    </div>
   </div>
 
   <div class="form-group">
-    <label for="soundDelay">Délai minimum entre les sons (ms)</label>
+    <label for="soundDelay">Minimum delay between sounds (ms)</label>
     <input type="number" id="soundDelay" min="500" step="500" placeholder="2000">
   </div>
 
-  <button id="save">Enregistrer</button>
+  <div class="save-container">
+    <button id="save">Save</button>
+  </div>
   <div id="status" class="status"></div>
 
   <script src="popup.js"></script>
