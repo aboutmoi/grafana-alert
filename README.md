@@ -1,15 +1,42 @@
-# Grafana Alert
+# Grafana Alert - Chrome Extension
 
-Extension Chrome qui surveille les dashboards Grafana et déclenche des alertes sonores en fonction des changements de couleur des panneaux.
+A Chrome extension that monitors Grafana dashboards and triggers sound alerts based on color changes in panels.
+
+
+## Features
+
+- Real-time monitoring of Grafana dashboard panels
+- Visual area selection for monitoring specific parts of the dashboard
+- Color detection with configurable thresholds for:
+  - Warning state (yellow)
+  - Alert state (red)
+- Sound notifications with customizable delay
+- Visual notifications with status and next alert time
+- Configurable minimum delay between alerts
 
 ## Installation
 
-1. Téléchargez ou clonez ce dépôt
-2. Ajoutez vos fichiers audio dans le dossier `sounds/` (voir [sounds/README.md](sounds/README.md))
-3. Ouvrez Chrome et accédez à `chrome://extensions/`
-4. Activez le "Mode développeur" (en haut à droite)
-5. Cliquez sur "Charger l'extension non empaquetée"
-6. Sélectionnez le dossier `grafana-alert`
+1. Clone this repository or download the files
+2. Add your audio files in the `sounds/` folder:
+   - `sound_attention.mp3` for warning state
+   - `sound_alert.mp3` for alert state
+3. Open Chrome and go to `chrome://extensions/`
+4. Enable "Developer mode" (top right)
+5. Click "Load unpacked extension"
+6. Select the extension folder
+
+## Usage
+
+1. Click the extension icon in Chrome
+2. Enable the extension
+3. Click "Add area" to select parts of your Grafana dashboard to monitor
+4. Enter the RGB values for warning and alert colors
+5. Set the minimum delay between sounds
+6. Click Save
+
+The extension will now monitor the selected areas and play sounds when:
+- Yellow warning color is detected
+- Red alert color is detected
 
 ## Configuration
 
@@ -59,6 +86,12 @@ Si l'extension ne fonctionne pas :
 
 ## Support
 
-Cette extension fonctionne avec :
-- Chrome version 88+
-- Grafana version 7+ 
+For support:
+1. Check the [Issues](https://github.com/yourusername/grafana-alert/issues) page
+2. Open a new issue if needed
+3. Provide as much detail as possible about your problem
+
+## Acknowledgments
+
+- Grafana team for their amazing dashboard platform
+- Chrome Extension documentation and community 
